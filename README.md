@@ -4,6 +4,39 @@
 
 提供 YouTube 連結（+逐字稿），自動下載影片、擷取截圖、生成 PowerPoint 簡報。
 
+## 環境需求（必裝）
+
+使用前請先確認已安裝以下工具，**缺一不可**：
+
+```bash
+# 1. 安裝 yt-dlp（下載 YouTube 影片與字幕）
+pip install yt-dlp
+
+# 2. 安裝 ffmpeg（影片截圖）
+#    Windows: https://ffmpeg.org/download.html 下載後加入 PATH
+#    Mac:
+brew install ffmpeg
+#    Linux:
+sudo apt install ffmpeg
+
+# 3. 安裝 Node.js 套件（生成簡報）
+npm install -g pptxgenjs react react-dom react-icons sharp
+```
+
+> ⚠️ **Windows 用戶注意**：ffmpeg 需要手動下載並加入系統 PATH，否則截圖功能無法運作。  
+> 教學：下載 ffmpeg → 解壓縮 → 把 `bin` 資料夾路徑加到系統環境變數的 PATH 中。
+
+確認安裝成功：
+```bash
+yt-dlp --version
+ffmpeg -version
+node -v
+```
+
+三個指令都有回應版本號就可以開始使用了。
+
+---
+
 ## 功能特色
 
 - **自動抓字幕**：優先從 YouTube 下載繁中/簡中字幕，不需要手動提供逐字稿
@@ -37,18 +70,6 @@ pptxgenjs 生成簡報 + 嵌入截圖
 ### 方法二：手動安裝
 
 將 `yt-to-pptx/` 資料夾複製到你的 Claude skills 目錄中。
-
-## 環境需求
-
-在你的電腦上需要安裝以下工具：
-
-| 工具 | 用途 | 安裝方式 |
-|------|------|---------|
-| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | 下載 YouTube 影片與字幕 | `pip install yt-dlp` |
-| [ffmpeg](https://ffmpeg.org/) | 影片截圖 | `brew install ffmpeg` 或 `apt install ffmpeg` |
-| [Node.js](https://nodejs.org/) | 執行 pptxgenjs | 官網下載 |
-| pptxgenjs | 生成 PowerPoint | `npm install -g pptxgenjs` |
-| react-icons + sharp | 簡報圖標 | `npm install -g react-icons react react-dom sharp` |
 
 ## 搭配使用
 
